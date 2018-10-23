@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<h><%= "Site list for #{@search_term.upcase}" %></h>
+
+<table>
+  <table border="1">
+  <tr>
+    <th>Site Name</th>
+    <th>Lat</th>
+    <th>Long</th>
+  </tr>
+<% @sites.each do |site| %>
+  <tr class=<%= cycle('even', 'odd') %>>
+    <td><%= site["sourceInfo"]["siteName"] %></td>
+    <td><%= site["sourceInfo"]["geoLocation"]["geogLocation"]["latitude"] %></td>
+    <td><%= site["sourceInfo"]["geoLocation"]["geogLocation"]["longitude"] %></td>
+  </tr>
+  <% end %>
+</table>
